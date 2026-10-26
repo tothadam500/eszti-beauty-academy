@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf6f2">
+  <meta name="description" content="Online szépségipari kurzusok Esztivel: 3D szempillaépítés, szemöldökstyling és körömépítés. Online tanulás, tankönyv, személyes vizsga és tanúsítvány.">
+  <title>Eszti Beauty Academy | Online szépségipari kurzusok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fbf7f3;
+      --paper: #fffcf8;
+      --blush: #f4e5e4;
+      --blush2: #eed6d8;
+      --rose: #b87883;
+      --deep-rose: #a86976;
+      --plum: #523b41;
+      --brown: #432e34;
+      --text: #4d4141;
+      --muted: #857777;
+      --line: #e9dcd5;
+      --gold: #b49a73;
+      --serif: 'Italiana', 'Bodoni MT', 'Times New Roman', serif;
+      --sans: 'DM Sans', 'Manrope', Arial, sans-serif;
+      --shadow: 0 24px 65px rgba(99, 55, 63, .11);
+    }
+    *, *::before, *::after {box-sizing: border-box;}
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {margin: 0; font-family: var(--sans); color: var(--text); background: var(--cream); -webkit-font-smoothing: antialiased; }
+    body::selection {background: var(--blush2); color: var(--brown);}
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { display: block; width: 100%; }
+    .container { width: min(1160px, calc(100% - 72px)); margin: 0 auto; }
+    .eyebrow { display: flex; align-items: center; gap: 11px; font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--deep-rose); }
+    .eyebrow::before { content: ''; display: block; height: 1px; width: 25px; background: currentColor; opacity: .65; }
+    .section-title {font: 400 clamp(46px, 5.5vw, 72px)/1.06 var(--serif); letter-spacing: -.035em; color: var(--brown); margin: 19px 0 18px;}
+    .section-title em, .hero-title em, .feature-title em, .contact-title em {font-weight: 400; color: var(--rose);}
+    .section-text {color: var(--muted); line-height: 1.85; font-size: 14px; max-width: 500px;}
+    .btn {display: inline-flex; justify-content: center; align-items: center; gap: 20px; padding: 17px 25px; border: 1px solid var(--plum); background: var(--plum); color: white; border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; transition: transform .25s, background .25s, border-color .25s, color .25s; cursor: pointer; white-space: nowrap;}
+    .btn:hover {transform: translateY(-2px); background: var(--deep-rose); border-color: var(--deep-rose);}
+    .btn-outline {color: var(--brown); background: transparent; border-color: #c8acac; }
+    .btn-outline:hover {color: white;}
+    .btn svg {width: 17px; height: 17px; flex: none;}
+    .topline {background: #ead5d6; text-align: center; font-size: 9px; letter-spacing: .23em; text-transform: uppercase; padding: 10px 16px; color: #74565e; font-weight: 700; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(251,247,243,.96); backdrop-filter: blur(17px); border-bottom: 1px solid rgba(185, 154, 150, .23); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 87px; gap: 30px; }
+    .logo {display: inline-flex; align-items: center; gap: 11px; min-width: max-content;}
+    .logo-mark {color: var(--rose); width: 27px; height: 27px;}
+    .logo-type {display: flex; flex-direction: column; gap: 0;}
+    .logo-name {font: 400 31px/.83 var(--serif); color: var(--brown); letter-spacing: -.04em;}
+    .logo-sub {font-size: 8px; letter-spacing: .3em; color: #86646b; text-transform: uppercase; font-weight: 700; margin-top: 8px;}
+    .nav-links {display: flex; align-items: center; gap: 35px; margin-left: auto;}
+    .nav-links a {font-size: 11px; letter-spacing: .025em; font-weight: 600; transition: color .2s;}
+    .nav-links a:hover {color: var(--rose);}
+    .nav-button {padding: 13px 19px; font-size: 10px;}
+    .nav-mobile-contact {display:none;}
+    .menu-button {display:none; border: 0; background: transparent; color: var(--brown); padding: 10px; cursor: pointer;}
+    .menu-button svg {width: 25px; height: 25px;}
+    .hero {position: relative; overflow: hidden; padding: 70px 0 82px; background: radial-gradient(circle at 3% 30%, #fbf2f0 0, transparent 36%), var(--cream);}
+    .hero::before {position: absolute; content: ''; width: 320px; height: 320px; border: 1px solid #e9d4d3; border-radius: 50%; left: -240px; bottom: -100px;}
+    .hero-inner { display: grid; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 55px; }
+    .hero-copy {padding-top: 0px; position: relative; z-index: 3;}
+    .hero-tag {font-size: 10px; text-transform: uppercase; letter-spacing: .19em; color: var(--deep-rose); font-weight: 700; display: inline-flex; gap: 9px; align-items: center; }
+    .hero-tag svg {width: 16px; height: 16px; color: var(--gold);}
+    .hero-title {font: 400 clamp(62px, 6.1vw, 91px)/.99 var(--serif); letter-spacing: -.045em; color: var(--brown); margin: 30px 0 21px; max-width: 680px; }
+    .hero-title em {display: inline-block;}
+    .hero-desc {font-size: 15px; line-height: 1.9; color: var(--muted); max-width: 445px; margin-bottom: 32px;}
+    .hero-actions {display: flex; flex-wrap: wrap; align-items: center; gap: 13px;}
+    .hero-note { margin-top: 56px; display:flex; align-items:center; gap: 15px; color: #8a7274; font-size: 11px; letter-spacing: .04em; }
+    .hero-note .ornament {font-size: 23px; color: #bd8d93;}
+    .hero-visual {position: relative; height: 640px; min-width: 0; display: flex; justify-content: center; align-items: center;}
+    .visual-outline {position: absolute; inset: 14px 2px 45px 24px; border: 1px solid #e1c5c2; border-radius: 49% 49% 4px 4px / 34% 34% 4px 4px; transform: rotate(5deg);}
+    .image-frame {position: relative; overflow: hidden; background: linear-gradient(135deg, #e7b7b9 0%, #d6abb0 42%, #b88f93 100%); isolation: isolate;}
+    .hero-photo {width: 87%; height: 600px; border-radius: 49% 49% 2px 2px / 34% 34% 2px 2px;}
+    .image-frame img {height:100%; object-fit: cover; opacity: 0; transition: opacity .5s; position:absolute; inset:0;}
+    .image-frame.loaded img {opacity:1;}
+    .image-frame.loaded .fallback-art {opacity:0;}
+    .hero-photo img {object-position:center 25%; filter: saturate(.66) sepia(.08);}
+    .hero-photo::after {content:''; position:absolute; inset:0; background: linear-gradient(0deg, rgba(78,45,52,.17), transparent 50%); pointer-events:none; z-index:1;}
+    .fallback-art {position: absolute; inset: 0; height:100%; width:100%; transition: opacity .4s; opacity: 1; pointer-events:none;}
+    .hero-seal {position:absolute; z-index:4; right: 0; top: 77px; background: #faf3ee; width: 128px; height: 128px; border-radius: 50%; border: 1px solid #e8d7cc; display:grid; place-items:center; text-align:center; box-shadow: 0 12px 24px rgba(63,37,42,.08); transform:rotate(12deg); }
+    .hero-seal span {font: 400 18px/1.15 var(--serif); color: var(--brown);}
+    .hero-seal b {color: var(--deep-rose); display:block; font-size:22px; font-weight: 400; margin-top:5px;}
+    .image-caption {position:absolute; z-index:4; left:0px; bottom:46px; background:rgba(255,252,248,.95); backdrop-filter:blur(12px); padding: 20px 24px; box-shadow:var(--shadow); max-width:240px;}
+    .image-caption small {font-size:9px; color:var(--deep-rose); letter-spacing:.2em; text-transform:uppercase; font-weight:700;}
+    .image-caption strong {font: 400 21px/1.1 var(--serif); display:block; margin-top:8px; color:var(--brown);}
+    .ribbon {background:#f0e2df; border-top:1px solid #e9d4d0; border-bottom:1px solid #e9d4d0;}
+    .ribbon-inner {display:grid; grid-template-columns:repeat(4,1fr); align-items:center; padding:23px 0; gap:20px;}
+    .ribbon-item {display:flex; align-items:center; justify-content:center; gap:11px; color:#644e53; font-size:11px; font-weight:600; letter-spacing:.03em; white-space:nowrap;}
+    .ribbon-item:not(:last-child) {border-right:1px solid #dcc5c2;}
+    .ribbon-item svg {height:22px;width:22px;stroke:#a8707a;stroke-width:1.4;fill:none;flex:none;}
+    section.block {padding: 116px 0;}
+    .heading-row {display:flex; justify-content:space-between; gap:40px; align-items:end; margin-bottom:42px;}
+    .heading-row .section-title {margin-bottom:0;}
+    .heading-row .section-text {max-width:300px; margin-bottom:6px;}
+    .courses-grid {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px;}
+    .course-card {background:var(--paper); border:1px solid #eee3de; transition:transform .3s, box-shadow .3s; min-width:0;}
+    .course-card:hover {transform:translateY(-6px); box-shadow:var(--shadow);}
+    .course-media {height:280px; overflow:hidden; position:relative;}
+    .course-media .fallback-art {max-height:280px;}
+    .course-media img {transition:opacity .5s, transform .6s;}
+    .course-card:hover .course-media img {transform:scale(1.05);}
+    .course-media.lash {background:linear-gradient(135deg,#efcacc,#b78f97);}
+    .course-media.brow {background:linear-gradient(135deg,#e8d8c9,#b79b91);}
+    .course-media.nails {background:linear-gradient(135deg,#f1d4d9,#bf9ea4);}
+    .course-chip {position:absolute; z-index:3; top:17px; left:18px; background:rgba(255,252,249,.94); font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:#8b646c; font-size:9px; padding:10px 12px;}
+    .course-body {padding: 29px 27px 28px;}
+    .course-index {font-size:10px; color:var(--rose); letter-spacing:.16em; font-weight:700;}
+    .course-body h3 {font: 400 33px/1.08 var(--serif); color:var(--brown); margin:13px 0 13px;}
+    .course-body p {font-size:12px; color:var(--muted); line-height:1.85; margin:0 0 22px; min-height:67px;}
+    .text-link {display:inline-flex; align-items:center; gap:15px; border-bottom:1px solid #b57d85; padding-bottom:7px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#935e69; transition:gap .2s;}
+    .text-link:hover {gap:22px;}
+    .text-link span {font-size:16px; line-height:1;}
+    .more-note {display:flex; justify-content:center; gap:10px; align-items:center; margin-top:36px; color:#826b70; font-size:12px;}
+    .more-note svg {height:19px;width:19px; color:var(--rose);}
+    .process {background:#563f47; position:relative; overflow:hidden; color:#fff9f6;}
+    .process::before {content:''; position:absolute; width:500px;height:500px; border:1px solid rgba(255,255,255,.13); border-radius:50%; right:-250px; top:-240px;}
+    .process .eyebrow {color:#e7bfc6;}
+    .process .section-title {color:#fff9f6;}
+    .process .section-title em {color:#e2adb8;}
+    .process .section-text {color:#dbcbd0;}
+    .steps {display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-top:53px;}
+    .step {border-top:1px solid rgba(255,255,255,.32); padding-top:25px;}
+    .step-number {font:400 49px/1 var(--serif);color:#d8a1ab;}
+    .step h3 {font:400 25px/1.2 var(--serif); margin:24px 0 13px; color:#fffbfa;}
+    .step p {font-size:12px; line-height:1.85; color:#d9c9ce; max-width:225px;}
+    .process-subline {margin-top:45px; border-top:1px solid rgba(255,255,255,.17); padding-top:22px; color:#f0d8dd; font-size:11px; display:flex; align-items:center;gap:10px; }
+    .about {background:#f9f1ec;}
+    .about-grid {display:grid; grid-template-columns:.94fr 1.06fr; gap:100px; align-items:center;}
+    .about-photo-wrap {position:relative; height:590px; display:flex; align-items:center;justify-content:center;}
+    .about-photo-outline {position:absolute; inset:17px 42px 0 0; border:1px solid #d3b0ad; border-radius:50% 50% 0 0 / 33% 33% 0 0;}
+    .about-photo {position:absolute; inset:0 0 24px 34px; border-radius:50% 50% 0 0 / 32% 32% 0 0; background:linear-gradient(150deg,#eed9d3,#d6afa9); display:flex; flex-direction:column; justify-content:center;align-items:center; gap:15px; text-align:center; border:1px solid #dcc4bb; overflow:hidden;}
+    .about-photo::before {content:''; position:absolute; width:380px;height:380px;border:1px solid rgba(255,255,255,.48);border-radius:50%; top:50px;right:-130px;}
+    .about-photo .photo-flower {font:400 88px/1 var(--serif);color:rgba(109,65,69,.35);}
+    .about-photo .placeholder-name {font:400 74px/.95 var(--serif);color:#6e4c52;}
+    .about-photo small {color:#86696b;font-size:10px;text-transform:uppercase;letter-spacing:.22em;font-weight:700;}
+    .about-sticker {position:absolute; left:-25px; bottom:45px; padding:20px 23px; background:var(--paper); box-shadow:var(--shadow); transform:rotate(-5deg); color:var(--brown); font:400 24px/1.2 var(--serif);}
+    .about-copy .section-text {margin:28px 0 25px; max-width:530px;}
+    .about-copy p:not(.section-text) {font-size:13px; color:var(--muted); line-height:1.95;}
+    .signature {font:400 47px/1.2 var(--serif); color:var(--deep-rose); margin-top:28px;}
+    .promise {background:#fffdfa; padding:72px 0;}
+    .promise-grid {display:grid;grid-template-columns:1.05fr 1fr 1fr 1fr;gap:35px;align-items:start;}
+    .promise-title {font:400 38px/1.12 var(--serif); color:var(--brown); margin:0;}
+    .promise-title em {color:var(--rose);}
+    .promise-item svg {width:31px;height:31px;fill:none;stroke:#a9707b;stroke-width:1.3;}
+    .promise-item h3 {font-size:12px; margin:20px 0 10px; color:var(--brown);}
+    .promise-item p {color:var(--muted); font-size:11px;line-height:1.75;}
+    .faq {background:var(--cream);}
+    .faq-grid {display:grid;grid-template-columns:.75fr 1.25fr; gap:95px;}
+    .faq-intro .section-title {font-size:62px;}
+    .faq-item {border-bottom:1px solid #decfca;}
+    .faq-item:first-child {border-top:1px solid #decfca;}
+    .faq-item summary {list-style:none; display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:23px 0; gap:20px; font-size:13px; font-weight:600; color:#59444b; }
+    .faq-item summary::-webkit-details-marker {display:none;}
+    .faq-item summary::after {content:'+'; font-size:24px; font-weight:300; color:var(--deep-rose); transition: transform .2s;}
+    .faq-item[open] summary::after {transform:rotate(45deg);}
+    .faq-item p {font-size:12px;line-height:1.9;color:var(--muted); margin: -4px 36px 25px 0;}
+    .contact {background:radial-gradient(circle at 85% -10%, #f7e8e2, transparent 40%), #f1dfdf; padding:100px 0; overflow:hidden; position:relative;}
+    .contact::before {content:'✳';color:#e1bfbd; font-size:450px;position:absolute;right:-65px;top:-190px;line-height:1;opacity:.32;pointer-events:none;}
+    .contact-content {position:relative;z-index:1; text-align:center;max-width:800px;margin:auto;}
+    .contact .eyebrow {justify-content:center;}
+    .contact .eyebrow::before {display:none;}
+    .contact-title {font:400 clamp(49px,7vw,81px)/1.04 var(--serif); color:var(--brown); margin:20px auto 21px; letter-spacing:-.035em;}
+    .contact-content > p {font-size:14px; color:#79696a; line-height:1.9; max-width:520px; margin:0 auto 32px;}
+    .contact-btn {min-width:275px;}
+    .phone-line {font-size:12px; margin-top:20px; color:#795b62; font-weight:600; letter-spacing:.05em;}
+    .site-footer {background:#fdf9f5; border-top:1px solid #eaded8; padding:50px 0 25px;}
+    .footer-top {display:flex;justify-content:space-between;align-items:center;gap:30px;padding-bottom:43px;}
+    .footer-nav {display:flex;gap:30px;align-items:center;font-size:11px;color:#705d61;}
+    .footer-nav a:hover {color:var(--rose);}
+    .footer-bottom {display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--line);font-size:10px;color:#98898a;gap:15px;}
+    .dialog {position:fixed; border:1px solid #dfc9c7;background:#fffaf7;padding:35px;max-width:min(420px,calc(100% - 40px));color:var(--brown);box-shadow:0 25px 100px rgba(60,37,45,.2);}
+    .dialog::backdrop {background:rgba(48,33,39,.55);backdrop-filter:blur(5px);}
+    .dialog h2 {font:400 43px/1.05 var(--serif);margin:0 0 15px;}
+    .dialog p {font-size:13px;line-height:1.8;color:var(--muted);}
+    .dialog-close {margin-top:14px;}
+    .skip-link {position:absolute;top:-100px;left:12px;padding:10px 16px;background:white;z-index:999;}
+    .skip-link:focus {top:10px;}
+    .reveal {opacity:1;transform:none;}
+    .reveal.is-visible {opacity:1;transform:none;}
+    @media (max-width:1000px) {
+      .container {width:min(100% - 44px, 1100px);}
+      .nav-links {gap:20px;}
+      .hero-inner {gap:25px;}
+      .hero-title {font-size:clamp(55px,6.7vw,80px);}
+      .hero-visual {height:550px;}
+      .hero-photo {height:510px;}
+      .hero-seal {right:-6px;width:110px;height:110px;}
+      .about-grid {gap:60px;}
+      .promise-grid {gap:25px;}
+      .courses-grid {gap:14px;}
+      .course-media {height:235px;}
+      .course-body {padding:22px;}
+    }
+    @media (max-width:760px) {
+      .topline {font-size:8px;letter-spacing:.11em;line-height:1.7;padding:9px 10px;}
+      .container {width:calc(100% - 36px);}
+      .nav {min-height:73px;}
+      .logo-name {font-size:27px;}
+      .nav-button {display:none;}
+      .menu-button {display:block;}
+      .nav-links {position:absolute;left:0;right:0;top:100%;padding:0 23px;background:#fbf7f3;box-shadow:0 20px 25px rgba(60,37,45,.08);border-bottom:1px solid #eadbd8;display:none;flex-direction:column;align-items:stretch;gap:0;margin:0;}
+      .nav-links.open {display:flex;}
+      .nav-mobile-contact {display:block;}
+      .nav-links a {padding:17px 0;border-top:1px solid #eadbd8;font-size:13px;}
+      .hero {padding:50px 0 45px;}
+      .hero-inner {grid-template-columns:1fr;gap:30px;}
+      .hero-copy {padding:0 3px;}
+      .hero-title {font-size:clamp(54px, 11vw, 73px);max-width:620px;margin:23px 0 17px;}
+      .hero-desc {font-size:13px;}
+      .hero-note {margin-top:26px;}
+      .hero-visual {height:500px;max-width:520px;width:100%;margin:0 auto;}
+      .hero-photo {height:475px;}
+      .hero-seal {right:0;top:35px;}
+      .image-caption {bottom:15px;}
+      .ribbon-inner {grid-template-columns:1fr 1fr;gap:20px 14px;padding:22px 0;}
+      .ribbon-item {border-right:0!important;justify-content:start;font-size:10px;gap:8px;white-space:normal;}
+      .ribbon-item svg {width:20px;height:20px;}
+      section.block {padding:75px 0;}
+      .section-title {font-size:clamp(48px, 9vw, 63px);}
+      .heading-row {display:block;margin-bottom:30px;}
+      .heading-row .section-text {margin-top:20px;}
+      .courses-grid {grid-template-columns:1fr;gap:23px;max-width:530px;margin:auto;}
+      .course-media {height:320px;}
+      .course-body {padding:25px;}
+      .course-body p {min-height:0;}
+      .steps {grid-template-columns:1fr 1fr; gap:34px 22px;}
+      .step h3 {margin-top:17px;}
+      .about-grid {grid-template-columns:1fr;gap:35px;}
+      .about-photo-wrap {height:470px;max-width:420px;width:100%;margin:0 auto;}
+      .about-sticker {left:0;}
+      .promise-grid {grid-template-columns:1fr 1fr;gap:30px;}
+      .promise-title {font-size:40px;}
+      .faq-grid {grid-template-columns:1fr;gap:30px;}
+      .faq-intro .section-title {font-size:54px;}
+      .contact {padding:80px 0;}
+      .footer-top {align-items:flex-start;}
+      .footer-nav {flex-wrap:wrap;justify-content:flex-end;gap:15px 22px;}
+    }
+    @media (max-width:430px) {
+      .hero-title {font-size:54px;}
+      .hero-actions {align-items:stretch;}
+      .hero-actions .btn {width:100%;}
+      .hero-visual {height:430px;}
+      .hero-photo {height:405px;}
+      .hero-seal {width:93px;height:93px;}
+      .hero-seal span {font-size:15px;}
+      .image-caption {padding:14px 17px;left:-1px;bottom:7px;}
+      .image-caption strong {font-size:18px;}
+      .ribbon-inner {column-gap:12px;}
+      .ribbon-item {font-size:9px;}
+      .course-media {height:245px;}
+      .about-photo-wrap {height:390px;}
+      .about-photo .placeholder-name {font-size:61px;}
+      .about-sticker {font-size:20px;padding:15px 18px;}
+      .promise-grid {gap:25px 18px;}
+      .footer-top {flex-direction:column;}
+      .footer-nav {justify-content:flex-start;}
+      .footer-bottom {align-items:flex-start;flex-direction:column;}
+    }
+    @media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto;} *,*::before,*::after {transition:none!important;animation:none!important;} .reveal {opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#tartalom">Ugrás a tartalomra</a>
+  <div class="topline">Online tanulás &nbsp; ✦ &nbsp; Személyes vizsga &nbsp; ✦ &nbsp; Tanúsítvány</div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#kezdolap" aria-label="Eszti Beauty Academy – kezdőlap">
+        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1c1.6 12.2 6.8 17.4 19 19-12.2 1.6-17.4 6.8-19 19C18.4 26.8 13.2 21.6 1 20 13.2 18.4 18.4 13.2 20 1Z" stroke="currentColor" stroke-width="1.2"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>
+        <span class="logo-type"><span class="logo-name">Eszti Beauty</span><span class="logo-sub">Academy · Online kurzusok</span></span>
+      </a>
+      <nav class="nav-links" id="main-nav" aria-label="Főmenü">
+        <a href="#kurzusok">Kurzusok</a><a href="#hogyan-mukodik">Hogyan működik?</a><a href="#rolam">Rólam</a><a href="#gyik">GYIK</a>
+        <a href="#jelentkezes" class="nav-mobile-contact">Jelentkezés</a>
+      </nav>
+      <a class="btn nav-button js-phone" href="#jelentkezes">Érdeklődöm <span aria-hidden="true">↗</span></a>
+      <button class="menu-button" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="main-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    </div>
+  </header>
+  <main id="tartalom">
+    <section class="hero" id="kezdolap">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1c1 7 4 10 11 11-7 1-10 4-11 11C11 16 8 13 1 12 8 11 11 8 12 1Z"/></svg> BEAUTY EDUCATION BY ESZTI</div>
+          <h1 class="hero-title">A szépség<br> a te kezedben <em>kezdődik.</em></h1>
+          <p class="hero-desc">Online szépségipari kurzusok, amelyekkel a saját tempódban fejlődhetsz. Tanulj otthonról, készülj fel a tankönyv segítségével, majd vizsgázz személyesen.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#kurzusok">Fedezd fel a kurzusokat <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-phone" href="#jelentkezes">Telefonos jelentkezés <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-note"><span class="ornament">✳</span><span>A szenvedélyedből új lehetőség születhet.</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Hangulatkép a szépségipari képzésekhez">
+          <div class="visual-outline"></div>
+          <div class="image-frame hero-photo">
+            <svg class="fallback-art" viewBox="0 0 540 680" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><radialGradient id="skin"><stop stop-color="#f9dfd0"/><stop offset="1" stop-color="#cc999d"/></radialGradient></defs><path fill="url(#skin)" d="M0 0h540v680H0z"/><ellipse cx="260" cy="380" rx="230" ry="285" fill="#e8c2b9" opacity=".56"/><path d="M30 240Q275 76 520 235" stroke="#82565e" stroke-width="30" fill="none" opacity=".18"/><path d="M62 338Q255 210 480 350" stroke="#79525a" stroke-width="12" fill="none" opacity=".82" stroke-linecap="round"/><path d="M70 347Q275 461 476 346" stroke="#835c62" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M130 314l-26-47M175 286l-10-54M224 273l2-55M279 273l12-51M328 280l27-55M378 296l38-48M425 322l43-31" stroke="#6c474d" stroke-width="7" stroke-linecap="round"/><path d="M85 212Q257 133 440 226" stroke="#87565c" stroke-width="14" opacity=".62" fill="none" stroke-linecap="round"/><text x="275" y="562" text-anchor="middle" fill="#9a6e73" opacity=".7" style="font:italic 50px Georgia">beauty is art.</text></svg>
+            <img src="https://images.pexels.com/photos/8129907/pexels-photo-8129907.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1100" alt="Szépségápolási részletfotó" fetchpriority="high" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+          </div>
+          <div class="hero-seal"><div><span>Learn.<br>Glow.<br>Repeat.</span><b>✳</b></div></div>
+          <div class="image-caption"><small>Az első lépés itt kezdődik</small><strong>Your beauty journey.</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-label="A képzések előnyei">
+      <div class="container ribbon-inner">
+        <div class="ribbon-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>Online tanulás</div>
+        <div class="ribbon-item"><svg viewBox="0 0 24 24"><path d="M12 4C9 2 5 2 2 4v15c3-2 7-2 10 0 3-2 7-2 10 0V4c-3-2-7-2-10 0v15"/></svg>Tankönyv a tanuláshoz</div>
+        <div class="ribbon-item"><svg viewBox="0 0 24 24"><path d="M4 4h16v17H4zM8 9h8M8 13h8M8 17h4"/></svg>Személyes vizsga</div>
+        <div class="ribbon-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></svg>Tanúsítvány a végén</div>
+      </div>
+    </div>
+
+    <section class="block" id="kurzusok">
+      <div class="container">
+        <div class="heading-row reveal">
+          <div><div class="eyebrow">01 / Kurzusaink</div><h2 class="section-title">Találd meg a te<br><em>specialitásodat.</em></h2></div>
+          <p class="section-text">A szépségipar sokszínű világa vár rád. Ismerd meg a képzési témákat, és érdeklődj telefonon a részletekről.</p>
+        </div>
+        <div class="courses-grid">
+          <article class="course-card reveal">
+            <div class="image-frame course-media lash">
+              <span class="course-chip">Lash artistry</span>
+              <svg class="fallback-art" viewBox="0 0 500 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="250" cy="165" r="145" fill="#e9c4c5" opacity=".6"/><path d="M45 195Q250 78 451 190M45 195Q253 285 451 190" fill="none" stroke="#6e5058" stroke-width="6"/><path d="M98 162l-19-38M151 132l-12-45M207 115l-1-55M262 113l11-54M316 122l24-49M372 144l39-38M415 170l32-21" fill="none" stroke="#6e5058" stroke-width="5" stroke-linecap="round"/></svg>
+              <img src="https://images.pexels.com/photos/5128234/pexels-photo-5128234.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Szempillaépítés közeli munkafolyamata" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+            </div>
+            <div class="course-body"><span class="course-index">KURZUS 01</span><h3>3D szempillaépítés</h3><p>A dús pillák világa: ismerkedj meg a precíz építés alapjaival, a technikákkal és a részletekkel.</p><a href="#jelentkezes" class="text-link">Érdekel a kurzus <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="course-card reveal">
+            <div class="image-frame course-media brow">
+              <span class="course-chip">Brow styling</span>
+              <svg class="fallback-art" viewBox="0 0 500 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="250" cy="160" r="145" fill="#ebddd2" opacity=".65"/><path d="M72 142Q231 34 437 127" fill="none" stroke="#795c56" stroke-width="20" stroke-linecap="round"/><path d="M78 214Q242 123 432 221M78 214Q257 287 432 221" fill="none" stroke="#8b7068" stroke-width="6"/><circle cx="256" cy="214" r="34" fill="#92756a" opacity=".8"/><circle cx="267" cy="204" r="13" fill="#eeded2"/></svg>
+              <img src="https://images.pexels.com/photos/6135621/pexels-photo-6135621.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Szemöldökformázás szépségszalonban" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+            </div>
+            <div class="course-body"><span class="course-index">KURZUS 02</span><h3>Szemöldökstyling</h3><p>Formázás, harmonikus arányok és igényes végeredmény – fedezd fel a szemöldök világát.</p><a href="#jelentkezes" class="text-link">Érdekel a kurzus <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="course-card reveal">
+            <div class="image-frame course-media nails">
+              <span class="course-chip">Nail artistry</span>
+              <svg class="fallback-art" viewBox="0 0 500 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="275" cy="150" r="148" fill="#f4dedb" opacity=".6"/><g transform="translate(125 44) rotate(-14 120 120)" fill="#eac6b6" stroke="#b08a89" stroke-width="4"><rect x="42" y="80" width="72" height="204" rx="38"/><rect x="115" y="22" width="66" height="255" rx="33"/><rect x="186" y="58" width="67" height="213" rx="34"/></g><g fill="#ae6d80"><rect x="172" y="78" width="36" height="62" rx="17" transform="rotate(-14 190 109)"/><rect x="241" y="44" width="35" height="63" rx="16" transform="rotate(-14 258 76)"/><rect x="308" y="78" width="35" height="59" rx="16" transform="rotate(-14 326 109)"/></g></svg>
+              <img src="https://images.pexels.com/photos/939834/pexels-photo-939834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Elegáns rózsaszín manikűr" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()">
+            </div>
+            <div class="course-body"><span class="course-index">KURZUS 03</span><h3>Körömépítés</h3><p>Formák, alaptechnikák és aprólékos kidolgozás – lépj be a kreatív körömdesign világába.</p><a href="#jelentkezes" class="text-link">Érdekel a kurzus <span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+        <div class="more-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2c1 7 3 9 10 10-7 1-9 3-10 10-1-7-3-9-10-10 7-1 9-3 10-10Z"/></svg>További szépségipari témák is érdekelnek? Kérdezz bátran telefonon!</div>
+      </div>
+    </section>
+
+    <section class="block process" id="hogyan-mukodik">
+      <div class="container">
+        <div class="reveal"><div class="eyebrow">02 / Így működik</div><h2 class="section-title">Online tanulás.<br><em>Valódi következő lépés.</em></h2><p class="section-text">A felkészülés online történik, a vizsgára pedig személyesen kerül sor. Íme a folyamat röviden.</p></div>
+        <div class="steps">
+          <div class="step reveal"><span class="step-number">01</span><h3>Érdeklődj telefonon</h3><p>Beszéljük át, melyik kurzus érdekel, és hogyan tudsz csatlakozni.</p></div>
+          <div class="step reveal"><span class="step-number">02</span><h3>Tanulj online</h3><p>A tananyagot online sajátíthatod el, tankönyv segítségével.</p></div>
+          <div class="step reveal"><span class="step-number">03</span><h3>Vizsgázz személyesen</h3><p>A tanulási szakasz végén a vizsga személyes jelenléttel zajlik.</p></div>
+          <div class="step reveal"><span class="step-number">04</span><h3>Szerezd meg a tanúsítványt</h3><p>Sikeres vizsgát követően tanúsítványt kapsz a képzés elvégzéséről.</p></div>
+        </div>
+        <div class="process-subline">✳ &nbsp; A vizsga időpontjáról és helyszínéről telefonon adunk tájékoztatást.</div>
+      </div>
+    </section>
+
+    <section class="block about" id="rolam">
+      <div class="container about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo-outline"></div>
+          <div class="about-photo" role="img" aria-label="Itt később Eszti bemutatkozó fotója lesz"><span class="photo-flower">✳</span><span class="placeholder-name">Hello, Eszti.</span><small>Hamarosan személyes fotóval</small></div>
+          <div class="about-sticker">A beauty world,<br>with love. ♡</div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="eyebrow">03 / Ismerj meg</div>
+          <h2 class="section-title">Szia, <em>Eszti vagyok!</em></h2>
+          <p class="section-text">Hiszek abban, hogy a szépségipar több, mint technikák összessége: kreativitás, aprólékos figyelem és folyamatos fejlődés.</p>
+          <p>Az Eszti Beauty Academy azért született, hogy a beauty világa iránt érdeklődők rugalmasan, online készülhessenek fel a választott területen. A tanulás során tankönyv is segít, a folyamatot pedig személyes vizsga zárja.</p>
+          <p>Akár most ismerkedsz a területtel, akár új irányt keresel, szeretettel várlak a kurzusok között.</p>
+          <div class="signature">With love, Eszti ♡</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="promise">
+      <div class="container promise-grid">
+        <h2 class="promise-title">A tudás, ami<br><em>veled marad.</em></h2>
+        <div class="promise-item"><svg viewBox="0 0 32 32"><rect x="3" y="6" width="26" height="19" rx="1"/><path d="M12 29h8M16 25v4M10 15l4 4 8-8"/></svg><h3>Rugalmas tanulás</h3><p>Az online tananyaggal kényelmesebben illesztheted a tanulást a napjaidhoz.</p></div>
+        <div class="promise-item"><svg viewBox="0 0 32 32"><path d="M16 6C12 3 7 3 3 6v22c4-3 9-3 13 0 4-3 9-3 13 0V6c-4-3-9-3-13 0v22"/></svg><h3>Tankönyvi segítség</h3><p>A tanuláshoz tankönyvet is kapsz, amely segíti a felkészülésed.</p></div>
+        <div class="promise-item"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="9"/><path d="m9 19-3 12 10-6 10 6-3-12"/></svg><h3>Személyes vizsga</h3><p>A képzés lezárásakor személyesen vizsgázol, majd siker esetén tanúsítványt kapsz.</p></div>
+      </div>
+    </section>
+
+    <section class="block faq" id="gyik">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal"><div class="eyebrow">04 / Jó tudni</div><h2 class="section-title">Gyakori<br><em>kérdések.</em></h2><p class="section-text">Összegyűjtöttem a legfontosabb információkat. Ha maradt még kérdésed, telefonon szívesen segítek.</p></div>
+        <div class="faq-list reveal">
+          <details class="faq-item"><summary>Tényleg teljesen online a tanulás?</summary><p>Igen, a tanulási rész online történik. A képzés végén azonban személyes vizsgán kell részt venni.</p></details>
+          <details class="faq-item"><summary>Kapok tankönyvet is a kurzushoz?</summary><p>Igen, a tanuláshoz tankönyv is jár. Ennek átadásáról és a pontos tananyagról telefonon érdeklődhetsz.</p></details>
+          <details class="faq-item"><summary>Hogyan tudok jelentkezni?</summary><p>A jelentkezés és az időpontok egyeztetése telefonon történik. Online foglalási rendszer jelenleg nincs.</p></details>
+          <details class="faq-item"><summary>Hol és mikor lesz a vizsga?</summary><p>A vizsga személyesen történik. A konkrét helyszínt és időpontot a jelentkezés során egyeztetjük.</p></details>
+          <details class="faq-item"><summary>Mit kapok a sikeres vizsga után?</summary><p>Sikeres vizsgát követően tanúsítványt kapsz a képzés elvégzéséről. A tanúsítvány pontos megnevezéséről és jogi besorolásáról érdemes külön tájékozódni.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="jelentkezes">
+      <div class="container contact-content reveal"><div class="eyebrow">Kezdődjön valami szép</div><h2 class="contact-title">Készen állsz a<br><em>következő lépésre?</em></h2><p>Válaszd ki, melyik kurzus áll hozzád a legközelebb, és érdeklődj telefonon a jelentkezésről és a részletekről.</p><a href="#jelentkezes" class="btn contact-btn js-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.7 3H3v4c0 7.7 6.3 14 14 14h4v-3.7l-5.1-2.6-2.2 2.2c-3-1.3-5.3-3.6-6.6-6.6l2.2-2.2L6.7 3Z"/></svg> Telefonos jelentkezés</a><div class="phone-line js-phone-text">Telefonszám hamarosan</div></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top"><a class="logo" href="#kezdolap"><svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1c1.6 12.2 6.8 17.4 19 19-12.2 1.6-17.4 6.8-19 19C18.4 26.8 13.2 21.6 1 20 13.2 18.4 18.4 13.2 20 1Z" stroke="currentColor" stroke-width="1.2"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg><span class="logo-type"><span class="logo-name">Eszti Beauty</span><span class="logo-sub">Academy · Online kurzusok</span></span></a><nav class="footer-nav" aria-label="Lábléc menü"><a href="#kurzusok">Kurzusok</a><a href="#hogyan-mukodik">Képzés menete</a><a href="#rolam">Rólam</a><a href="#gyik">GYIK</a><a href="#jelentkezes">Kapcsolat</a></nav></div>
+      <div class="footer-bottom"><span>© <span id="current-year">2026</span> Eszti Beauty Academy. Minden jog fenntartva.</span><span>Készült szeretettel ✳</span></div>
+    </div>
+  </footer>
+  <dialog class="dialog" id="phone-dialog"><h2>Hamarosan hívhatsz! ♡</h2><p>A telefonos jelentkezéshez tartozó szám még nincs megadva. Az oldal élesítésekor ide kerül majd Eszti elérhetősége.</p><button type="button" class="btn dialog-close">Rendben</button></dialog>
+  <script>
+    // ====== SZEMÉLYRE SZABÁS ======
+    // Add meg a valós telefonszámot. Például: '+36 30 123 4567'.
+    // Amíg üres, a telefonos gombok tájékoztató ablakot nyitnak.
+    const CONTACT_PHONE = '';
+    // =============================
+
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Menü bezárása' : 'Menü megnyitása');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Menü megnyitása');
+    }));
+    const dialog = document.getElementById('phone-dialog');
+    document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+    const number = CONTACT_PHONE.trim();
+    const dial = number.replace(/[^\d+]/g, '');
+    if (number) {
+      document.querySelectorAll('.js-phone').forEach(a => a.href = 'tel:' + dial);
+      document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = number);
+    } else {
+      document.querySelectorAll('.js-phone').forEach(a => a.addEventListener('click', e => {
+        e.preventDefault();
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else alert('A telefonszám hamarosan elérhető.');
+      }));
+    }
+    const yearNode = document.getElementById('current-year');
+    if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {if (entry.isIntersecting) {entry.target.classList.add('is-visible'); observer.unobserve(entry.target);}});
+      }, {threshold:.09});
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    } else document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  </script>
+</body>
+</html>
